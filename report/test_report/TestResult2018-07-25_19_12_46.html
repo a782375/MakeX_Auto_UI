@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2018-07-25 19:12:46</p>
+<p class='attribute'><strong>Duration:</strong> 0:09:59.246221</p>
+<p class='attribute'><strong>Status:</strong> Error 1</p>
+
+<p class='description'>Test the import testcase</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_create_team.create_team1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_create1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: 2018-07-25 19:12:46,637 - root - INFO - ############################### START ###############################
+2018-07-25 19:12:51,291 - root - INFO - SUCCESS Open a new browser : firefox, Spend 4.6529998779296875 seconds. 
+2018-07-25 19:12:51,352 - root - INFO - SUCCESS Set browser window maximized, Spend 0.06100034713745117 seconds
+2018-07-25 19:12:52,352 - root - INFO - SUCCESS Open url: http://test2.www.makex.cc/login, Spend 0.9969997406005859 seconds. 
+2018-07-25 19:12:52,379 - root - INFO - SUCCESS Clearing content of element: id-&gt;phone_num, Spend 0.025999784469604492 seconds
+2018-07-25 19:12:52,427 - root - INFO - SUCCESS Sent element: id-&gt;phone_num, content: 18626909902, Spend 0.04699993133544922 seconds
+2018-07-25 19:12:52,444 - root - INFO - SUCCESS Clearing content of element: id-&gt;password, Spend 0.015999794006347656 seconds
+2018-07-25 19:12:52,468 - root - INFO - SUCCESS Sent element: id-&gt;password, content: 123456, Spend 0.024000167846679688 seconds
+2018-07-25 19:12:53,291 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class = 'btn btn-primary btn-block btn-lg'], Spend 0.8219997882843018 seconds
+2018-07-25 19:12:55,418 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 2.125 seconds
+2018-07-25 19:12:55,424 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.003999948501586914 seconds
+2018-07-25 19:12:57,913 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 1.4880001544952393 seconds
+2018-07-25 19:13:00,206 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.29200005531311035 seconds
+2018-07-25 19:13:02,472 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.2650001049041748 seconds
+2018-07-25 19:13:02,488 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.01399993896484375 seconds
+2018-07-25 19:13:03,757 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.2689998149871826 seconds
+2018-07-25 19:13:04,997 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.2390000820159912 seconds
+2018-07-25 19:13:05,042 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.04400014877319336 seconds
+2018-07-25 19:13:05,420 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.377000093460083 seconds
+2018-07-25 19:13:05,449 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.0280001163482666 seconds
+2018-07-25 19:13:05,516 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队501, Spend 0.06499981880187988 seconds
+2018-07-25 19:13:05,542 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.02500009536743164 seconds
+2018-07-25 19:13:05,564 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.019999980926513672 seconds
+2018-07-25 19:13:05,584 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.018999814987182617 seconds
+2018-07-25 19:13:05,604 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.019999980926513672 seconds
+2018-07-25 19:13:05,837 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.23200011253356934 seconds
+2018-07-25 19:13:06,386 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5479998588562012 seconds
+2018-07-25 19:13:14,521 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.4160001277923584 seconds
+2018-07-25 19:13:14,528 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.006000041961669922 seconds
+2018-07-25 19:13:16,410 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.879000186920166 seconds
+2018-07-25 19:13:18,660 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.24900007247924805 seconds
+2018-07-25 19:13:20,908 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24700021743774414 seconds
+2018-07-25 19:13:20,932 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.023000001907348633 seconds
+2018-07-25 19:13:22,209 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.2740001678466797 seconds
+2018-07-25 19:13:23,450 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.2390000820159912 seconds
+2018-07-25 19:13:23,493 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0409998893737793 seconds
+2018-07-25 19:13:23,869 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.375 seconds
+2018-07-25 19:13:23,898 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.026000261306762695 seconds
+2018-07-25 19:13:23,948 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队502, Spend 0.04900026321411133 seconds
+2018-07-25 19:13:23,974 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.023999929428100586 seconds
+2018-07-25 19:13:23,997 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.02200007438659668 seconds
+2018-07-25 19:13:24,017 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.01900005340576172 seconds
+2018-07-25 19:13:24,040 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.02200031280517578 seconds
+2018-07-25 19:13:24,272 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.22999978065490723 seconds
+2018-07-25 19:13:24,804 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5299999713897705 seconds
+2018-07-25 19:13:32,802 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.1590001583099365 seconds
+2018-07-25 19:13:32,810 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.006999969482421875 seconds
+2018-07-25 19:13:34,519 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.7079999446868896 seconds
+2018-07-25 19:13:36,772 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2519998550415039 seconds
+2018-07-25 19:13:39,037 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.26399993896484375 seconds
+2018-07-25 19:13:39,053 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.014999866485595703 seconds
+2018-07-25 19:13:40,296 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24099993705749512 seconds
+2018-07-25 19:13:41,525 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.22799992561340332 seconds
+2018-07-25 19:13:41,562 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.03500008583068848 seconds
+2018-07-25 19:13:41,965 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.4010000228881836 seconds
+2018-07-25 19:13:41,985 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.017000198364257812 seconds
+2018-07-25 19:13:42,022 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队503, Spend 0.03400015830993652 seconds
+2018-07-25 19:13:42,037 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.012999773025512695 seconds
+2018-07-25 19:13:42,064 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.023999929428100586 seconds
+2018-07-25 19:13:42,078 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.012000083923339844 seconds
+2018-07-25 19:13:42,103 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.023999929428100586 seconds
+2018-07-25 19:13:42,327 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2219998836517334 seconds
+2018-07-25 19:13:42,859 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5299999713897705 seconds
+2018-07-25 19:13:55,765 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 3.4679999351501465 seconds
+2018-07-25 19:13:55,773 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.006000041961669922 seconds
+2018-07-25 19:13:57,397 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.6230001449584961 seconds
+2018-07-25 19:13:59,646 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.247999906539917 seconds
+2018-07-25 19:14:01,891 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24199986457824707 seconds
+2018-07-25 19:14:01,913 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.019999980926513672 seconds
+2018-07-25 19:14:03,181 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26600003242492676 seconds
+2018-07-25 19:14:04,457 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.27500009536743164 seconds
+2018-07-25 19:14:04,504 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.04500007629394531 seconds
+2018-07-25 19:14:04,884 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.3789999485015869 seconds
+2018-07-25 19:14:04,904 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.01900005340576172 seconds
+2018-07-25 19:14:04,943 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队504, Spend 0.037999868392944336 seconds
+2018-07-25 19:14:04,957 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.013000011444091797 seconds
+2018-07-25 19:14:04,978 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.019999980926513672 seconds
+2018-07-25 19:14:04,988 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.009000301361083984 seconds
+2018-07-25 19:14:05,015 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.025999784469604492 seconds
+2018-07-25 19:14:05,243 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.22699999809265137 seconds
+2018-07-25 19:14:05,785 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5399999618530273 seconds
+2018-07-25 19:14:13,674 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.071000099182129 seconds
+2018-07-25 19:14:13,680 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.003999948501586914 seconds
+2018-07-25 19:14:17,756 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 3.075000047683716 seconds
+2018-07-25 19:14:20,001 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.24500012397766113 seconds
+2018-07-25 19:14:22,254 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.2499997615814209 seconds
+2018-07-25 19:14:22,274 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.017999887466430664 seconds
+2018-07-25 19:14:23,520 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24399995803833008 seconds
+2018-07-25 19:14:24,745 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.22300004959106445 seconds
+2018-07-25 19:14:24,769 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.02200007438659668 seconds
+2018-07-25 19:14:25,151 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.3810000419616699 seconds
+2018-07-25 19:14:25,171 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.01699995994567871 seconds
+2018-07-25 19:14:25,207 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队505, Spend 0.034999847412109375 seconds
+2018-07-25 19:14:25,223 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.014999866485595703 seconds
+2018-07-25 19:14:25,259 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.03499960899353027 seconds
+2018-07-25 19:14:25,273 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.011999845504760742 seconds
+2018-07-25 19:14:25,291 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.01699995994567871 seconds
+2018-07-25 19:14:25,522 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.23000001907348633 seconds
+2018-07-25 19:14:26,040 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5170001983642578 seconds
+2018-07-25 19:14:33,752 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.9769999980926514 seconds
+2018-07-25 19:14:33,756 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.003000020980834961 seconds
+2018-07-25 19:14:41,014 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 6.25600004196167 seconds
+2018-07-25 19:14:43,267 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.25100016593933105 seconds
+2018-07-25 19:14:45,512 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24200010299682617 seconds
+2018-07-25 19:14:45,536 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.021999835968017578 seconds
+2018-07-25 19:14:46,791 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.2539999485015869 seconds
+2018-07-25 19:14:48,031 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.2389998435974121 seconds
+2018-07-25 19:14:48,076 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.04400014877319336 seconds
+2018-07-25 19:14:48,433 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.3559999465942383 seconds
+2018-07-25 19:14:48,465 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.03000020980834961 seconds
+2018-07-25 19:14:48,497 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队506, Spend 0.03099989891052246 seconds
+2018-07-25 19:14:48,521 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.023000240325927734 seconds
+2018-07-25 19:14:48,541 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.019999980926513672 seconds
+2018-07-25 19:14:48,560 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.01900005340576172 seconds
+2018-07-25 19:14:48,582 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.021999835968017578 seconds
+2018-07-25 19:14:48,810 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.22699999809265137 seconds
+2018-07-25 19:14:49,369 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5580000877380371 seconds
+2018-07-25 19:14:57,252 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.1570000648498535 seconds
+2018-07-25 19:14:57,256 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.003000020980834961 seconds
+2018-07-25 19:14:58,829 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.5721971988677979 seconds
+2018-07-25 19:15:01,122 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2807929515838623 seconds
+2018-07-25 19:15:03,384 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959349632263184 seconds
+2018-07-25 19:15:03,384 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.0 seconds
+2018-07-25 19:15:04,648 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24959373474121094 seconds
+2018-07-25 19:15:05,911 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:15:05,942 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.031199216842651367 seconds
+2018-07-25 19:15:06,286 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.34319114685058594 seconds
+2018-07-25 19:15:06,317 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.0 seconds
+2018-07-25 19:15:06,364 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队507, Spend 0.0467989444732666 seconds
+2018-07-25 19:15:06,364 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.0 seconds
+2018-07-25 19:15:06,395 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:15:06,395 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.0 seconds
+2018-07-25 19:15:06,426 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.031199216842651367 seconds
+2018-07-25 19:15:06,662 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2359938621520996 seconds
+2018-07-25 19:15:07,208 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459859371185303 seconds
+2018-07-25 19:15:15,008 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.045173168182373 seconds
+2018-07-25 19:15:15,023 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.015599489212036133 seconds
+2018-07-25 19:15:18,908 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 2.870326280593872 seconds
+2018-07-25 19:15:21,185 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:15:23,463 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.26519322395324707 seconds
+2018-07-25 19:15:23,478 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599489212036133 seconds
+2018-07-25 19:15:24,742 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24959373474121094 seconds
+2018-07-25 19:15:26,005 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:15:26,052 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467987060546875 seconds
+2018-07-25 19:15:26,427 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.3743903636932373 seconds
+2018-07-25 19:15:26,458 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:15:26,489 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队508, Spend 0.031199216842651367 seconds
+2018-07-25 19:15:26,505 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:15:26,520 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:15:26,536 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599489212036133 seconds
+2018-07-25 19:15:26,551 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:15:26,801 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.24959349632263184 seconds
+2018-07-25 19:15:27,331 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5303864479064941 seconds
+2018-07-25 19:15:35,443 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.2011690139770508 seconds
+2018-07-25 19:15:35,459 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.015599727630615234 seconds
+2018-07-25 19:15:37,237 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.7643804550170898 seconds
+2018-07-25 19:15:39,530 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2807929515838623 seconds
+2018-07-25 19:15:41,808 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.26519322395324707 seconds
+2018-07-25 19:15:41,823 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599489212036133 seconds
+2018-07-25 19:15:43,103 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:15:44,366 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:15:44,413 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467989444732666 seconds
+2018-07-25 19:15:44,772 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.35879087448120117 seconds
+2018-07-25 19:15:44,787 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.015599489212036133 seconds
+2018-07-25 19:15:44,850 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队509, Spend 0.06239819526672363 seconds
+2018-07-25 19:15:44,881 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.031199216842651367 seconds
+2018-07-25 19:15:44,897 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:15:44,912 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599489212036133 seconds
+2018-07-25 19:15:44,928 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:15:45,177 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.24959349632263184 seconds
+2018-07-25 19:15:48,110 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 2.932724952697754 seconds
+2018-07-25 19:15:55,847 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.0139739513397217 seconds
+2018-07-25 19:15:55,863 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.015599727630615234 seconds
+2018-07-25 19:15:57,579 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.7019820213317871 seconds
+2018-07-25 19:15:59,857 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519298553466797 seconds
+2018-07-25 19:16:02,118 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959373474121094 seconds
+2018-07-25 19:16:02,134 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599489212036133 seconds
+2018-07-25 19:16:03,413 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:16:04,661 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.2339940071105957 seconds
+2018-07-25 19:16:04,708 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467987060546875 seconds
+2018-07-25 19:16:05,067 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.35879087448120117 seconds
+2018-07-25 19:16:05,098 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:16:05,145 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5010, Spend 0.0467987060546875 seconds
+2018-07-25 19:16:05,160 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599727630615234 seconds
+2018-07-25 19:16:05,192 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:16:05,207 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599489212036133 seconds
+2018-07-25 19:16:05,223 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:16:05,457 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:16:06,050 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5927846431732178 seconds
+2018-07-25 19:16:13,803 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.0295734405517578 seconds
+2018-07-25 19:16:13,803 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:16:15,347 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.5303864479064941 seconds
+2018-07-25 19:16:17,640 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2807927131652832 seconds
+2018-07-25 19:16:19,902 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959373474121094 seconds
+2018-07-25 19:16:19,933 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.031199216842651367 seconds
+2018-07-25 19:16:21,228 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.2807929515838623 seconds
+2018-07-25 19:16:22,492 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:16:22,523 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.031198978424072266 seconds
+2018-07-25 19:16:22,913 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.38999032974243164 seconds
+2018-07-25 19:16:22,928 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.015599489212036133 seconds
+2018-07-25 19:16:22,991 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5011, Spend 0.062398433685302734 seconds
+2018-07-25 19:16:23,006 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:16:23,022 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599489212036133 seconds
+2018-07-25 19:16:23,053 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.031199216842651367 seconds
+2018-07-25 19:16:23,069 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:16:23,303 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:16:23,849 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459859371185303 seconds
+2018-07-25 19:16:31,586 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.9983744621276855 seconds
+2018-07-25 19:16:31,586 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:16:36,204 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 3.6035077571868896 seconds
+2018-07-25 19:16:38,466 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.24959349632263184 seconds
+2018-07-25 19:16:40,759 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.2807929515838623 seconds
+2018-07-25 19:16:40,774 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599489212036133 seconds
+2018-07-25 19:16:42,053 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519298553466797 seconds
+2018-07-25 19:16:43,317 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:16:43,364 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467989444732666 seconds
+2018-07-25 19:16:43,769 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.40558934211730957 seconds
+2018-07-25 19:16:43,801 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.03119945526123047 seconds
+2018-07-25 19:16:43,832 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5012, Spend 0.031199216842651367 seconds
+2018-07-25 19:16:43,847 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:16:43,863 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:16:43,894 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.031199216842651367 seconds
+2018-07-25 19:16:43,910 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599489212036133 seconds
+2018-07-25 19:16:44,144 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:16:44,690 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459861755371094 seconds
+2018-07-25 19:16:52,708 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.294766902923584 seconds
+2018-07-25 19:16:52,708 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:16:54,346 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.6239840984344482 seconds
+2018-07-25 19:16:56,623 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:16:58,901 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.26519322395324707 seconds
+2018-07-25 19:16:58,932 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.031199216842651367 seconds
+2018-07-25 19:17:00,211 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:17:01,475 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:17:01,522 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467987060546875 seconds
+2018-07-25 19:17:01,896 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.3743906021118164 seconds
+2018-07-25 19:17:01,943 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031198978424072266 seconds
+2018-07-25 19:17:01,974 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5013, Spend 0.031199216842651367 seconds
+2018-07-25 19:17:01,990 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:17:02,005 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:17:02,021 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599489212036133 seconds
+2018-07-25 19:17:02,052 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:17:02,286 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:17:02,957 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.6707828044891357 seconds
+2018-07-25 19:17:10,726 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.0295734405517578 seconds
+2018-07-25 19:17:10,726 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:17:14,610 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 2.870326519012451 seconds
+2018-07-25 19:17:16,887 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:17:19,149 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959349632263184 seconds
+2018-07-25 19:17:19,180 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.031198978424072266 seconds
+2018-07-25 19:17:20,460 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:17:21,723 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:17:21,770 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467989444732666 seconds
+2018-07-25 19:17:22,160 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.38999009132385254 seconds
+2018-07-25 19:17:22,191 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031198978424072266 seconds
+2018-07-25 19:17:22,238 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5014, Spend 0.0467989444732666 seconds
+2018-07-25 19:17:22,269 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.031199216842651367 seconds
+2018-07-25 19:17:22,300 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:17:22,332 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.031199216842651367 seconds
+2018-07-25 19:17:22,378 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.0467987060546875 seconds
+2018-07-25 19:17:22,612 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:17:23,143 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5303864479064941 seconds
+2018-07-25 19:17:33,205 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.0139741897583008 seconds
+2018-07-25 19:17:33,205 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:17:37,510 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 3.291515827178955 seconds
+2018-07-25 19:17:39,772 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.24959349632263184 seconds
+2018-07-25 19:17:42,081 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.29639244079589844 seconds
+2018-07-25 19:17:42,096 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599727630615234 seconds
+2018-07-25 19:17:43,375 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519298553466797 seconds
+2018-07-25 19:17:44,639 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:17:44,686 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467987060546875 seconds
+2018-07-25 19:17:45,076 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.38999009132385254 seconds
+2018-07-25 19:17:45,107 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:17:45,138 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5015, Spend 0.031198978424072266 seconds
+2018-07-25 19:17:45,169 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.031199216842651367 seconds
+2018-07-25 19:17:45,185 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:17:45,201 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599727630615234 seconds
+2018-07-25 19:17:45,232 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.031199216842651367 seconds
+2018-07-25 19:17:45,466 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339937686920166 seconds
+2018-07-25 19:17:46,027 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5615856647491455 seconds
+2018-07-25 19:17:59,084 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 3.5255095958709717 seconds
+2018-07-25 19:17:59,100 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.015599489212036133 seconds
+2018-07-25 19:18:01,845 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 1.731555700302124 seconds
+2018-07-25 19:18:04,170 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.31199216842651367 seconds
+2018-07-25 19:18:06,447 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.26519322395324707 seconds
+2018-07-25 19:18:06,463 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599489212036133 seconds
+2018-07-25 19:18:07,758 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.2807929515838623 seconds
+2018-07-25 19:18:09,021 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:18:09,052 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.031199216842651367 seconds
+2018-07-25 19:18:09,427 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.3743901252746582 seconds
+2018-07-25 19:18:09,442 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.015599727630615234 seconds
+2018-07-25 19:18:09,505 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5016, Spend 0.062398433685302734 seconds
+2018-07-25 19:18:09,520 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:18:09,536 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:18:09,567 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599727630615234 seconds
+2018-07-25 19:18:09,583 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:18:09,817 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339937686920166 seconds
+2018-07-25 19:18:10,347 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.530386209487915 seconds
+2018-07-25 19:18:20,799 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 3.712705135345459 seconds
+2018-07-25 19:18:20,799 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:18:22,468 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.6551833152770996 seconds
+2018-07-25 19:18:24,730 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.24959349632263184 seconds
+2018-07-25 19:18:27,023 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.2807929515838623 seconds
+2018-07-25 19:18:27,039 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599489212036133 seconds
+2018-07-25 19:18:28,318 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519298553466797 seconds
+2018-07-25 19:18:29,566 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.2339940071105957 seconds
+2018-07-25 19:18:29,613 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467987060546875 seconds
+2018-07-25 19:18:30,003 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.38999032974243164 seconds
+2018-07-25 19:18:30,034 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:18:30,065 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5017, Spend 0.031198978424072266 seconds
+2018-07-25 19:18:30,081 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:18:30,112 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:18:30,127 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599727630615234 seconds
+2018-07-25 19:18:30,143 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599489212036133 seconds
+2018-07-25 19:18:30,377 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:18:31,048 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.6707830429077148 seconds
+2018-07-25 19:18:38,957 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.1543705463409424 seconds
+2018-07-25 19:18:38,972 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.015599727630615234 seconds
+2018-07-25 19:18:41,172 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 1.1855695247650146 seconds
+2018-07-25 19:18:43,465 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2807929515838623 seconds
+2018-07-25 19:18:45,743 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.26519322395324707 seconds
+2018-07-25 19:18:45,758 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599489212036133 seconds
+2018-07-25 19:18:47,037 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:18:48,301 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:18:48,348 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467989444732666 seconds
+2018-07-25 19:18:48,722 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.3743903636932373 seconds
+2018-07-25 19:18:48,753 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:18:48,785 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5018, Spend 0.031198978424072266 seconds
+2018-07-25 19:18:48,800 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599727630615234 seconds
+2018-07-25 19:18:48,816 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599489212036133 seconds
+2018-07-25 19:18:48,847 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.031199216842651367 seconds
+2018-07-25 19:18:48,863 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:18:49,097 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:18:49,643 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459859371185303 seconds
+2018-07-25 19:18:57,630 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.2011690139770508 seconds
+2018-07-25 19:18:57,645 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.015599727630615234 seconds
+2018-07-25 19:18:59,299 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.6395835876464844 seconds
+2018-07-25 19:19:01,639 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.3275916576385498 seconds
+2018-07-25 19:19:03,901 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959349632263184 seconds
+2018-07-25 19:19:03,916 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599727630615234 seconds
+2018-07-25 19:19:05,195 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:19:06,459 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:19:06,506 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467984676361084 seconds
+2018-07-25 19:19:06,865 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.35879087448120117 seconds
+2018-07-25 19:19:06,896 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:06,943 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5019, Spend 0.0467989444732666 seconds
+2018-07-25 19:19:06,974 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:06,989 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:19:07,005 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599250793457031 seconds
+2018-07-25 19:19:07,021 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:19:07,255 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339937686920166 seconds
+2018-07-25 19:19:07,801 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459861755371094 seconds
+2018-07-25 19:19:15,694 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.1699702739715576 seconds
+2018-07-25 19:19:15,710 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.015599489212036133 seconds
+2018-07-25 19:19:17,285 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.5615856647491455 seconds
+2018-07-25 19:19:19,563 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:19:21,840 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.26519322395324707 seconds
+2018-07-25 19:19:21,856 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599727630615234 seconds
+2018-07-25 19:19:23,119 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24959373474121094 seconds
+2018-07-25 19:19:24,383 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:19:24,430 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:24,788 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.35879063606262207 seconds
+2018-07-25 19:19:24,820 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:24,835 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5020, Spend 0.015599727630615234 seconds
+2018-07-25 19:19:24,851 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:19:24,882 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:24,898 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599727630615234 seconds
+2018-07-25 19:19:24,913 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599489212036133 seconds
+2018-07-25 19:19:25,163 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.24959373474121094 seconds
+2018-07-25 19:19:25,740 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5771849155426025 seconds
+2018-07-25 19:19:33,509 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.0139741897583008 seconds
+2018-07-25 19:19:33,509 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:19:35,661 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 1.1387710571289062 seconds
+2018-07-25 19:19:37,970 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.29639196395874023 seconds
+2018-07-25 19:19:40,232 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959373474121094 seconds
+2018-07-25 19:19:40,263 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.031199216842651367 seconds
+2018-07-25 19:19:41,558 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.2807929515838623 seconds
+2018-07-25 19:19:42,822 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:19:42,868 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467989444732666 seconds
+2018-07-25 19:19:43,227 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.35879063606262207 seconds
+2018-07-25 19:19:43,258 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:43,290 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5021, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:43,321 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:43,336 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:19:43,352 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599489212036133 seconds
+2018-07-25 19:19:43,383 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.031199216842651367 seconds
+2018-07-25 19:19:43,617 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:19:44,148 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5303864479064941 seconds
+2018-07-25 19:19:51,979 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.1075713634490967 seconds
+2018-07-25 19:19:51,979 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:19:53,632 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.6239840984344482 seconds
+2018-07-25 19:19:55,910 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:19:58,187 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959373474121094 seconds
+2018-07-25 19:19:58,203 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599489212036133 seconds
+2018-07-25 19:19:59,466 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24959349632263184 seconds
+2018-07-25 19:20:00,730 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:20:00,777 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467987060546875 seconds
+2018-07-25 19:20:01,151 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.3743903636932373 seconds
+2018-07-25 19:20:01,182 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:01,214 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5022, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:01,229 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599727630615234 seconds
+2018-07-25 19:20:01,245 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599489212036133 seconds
+2018-07-25 19:20:01,260 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599727630615234 seconds
+2018-07-25 19:20:01,292 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:01,526 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:20:02,087 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5615856647491455 seconds
+2018-07-25 19:20:10,043 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.2011690139770508 seconds
+2018-07-25 19:20:10,043 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:20:14,239 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 3.1823182106018066 seconds
+2018-07-25 19:20:16,517 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:20:18,794 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.26519322395324707 seconds
+2018-07-25 19:20:18,810 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.0 seconds
+2018-07-25 19:20:20,089 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:20:21,353 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:20:21,384 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.031198978424072266 seconds
+2018-07-25 19:20:21,789 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.40558958053588867 seconds
+2018-07-25 19:20:21,821 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:21,852 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5023, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:21,867 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599727630615234 seconds
+2018-07-25 19:20:21,883 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599250793457031 seconds
+2018-07-25 19:20:21,914 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.03119945526123047 seconds
+2018-07-25 19:20:21,930 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599489212036133 seconds
+2018-07-25 19:20:22,164 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:20:22,710 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459859371185303 seconds
+2018-07-25 19:20:30,432 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.9671750068664551 seconds
+2018-07-25 19:20:30,447 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:20:35,595 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 4.133893966674805 seconds
+2018-07-25 19:20:37,873 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:20:40,135 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959349632263184 seconds
+2018-07-25 19:20:40,150 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599727630615234 seconds
+2018-07-25 19:20:41,429 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:20:42,693 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:20:42,755 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.062398433685302734 seconds
+2018-07-25 19:20:43,114 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.35879063606262207 seconds
+2018-07-25 19:20:43,145 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:43,192 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5024, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:43,223 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:43,254 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:43,270 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599489212036133 seconds
+2018-07-25 19:20:43,317 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.031199216842651367 seconds
+2018-07-25 19:20:43,566 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.24959349632263184 seconds
+2018-07-25 19:20:44,112 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459859371185303 seconds
+2018-07-25 19:20:51,881 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.045173168182373 seconds
+2018-07-25 19:20:51,897 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.015599727630615234 seconds
+2018-07-25 19:20:55,609 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 2.698730707168579 seconds
+2018-07-25 19:20:57,902 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2807929515838623 seconds
+2018-07-25 19:21:00,164 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959349632263184 seconds
+2018-07-25 19:21:00,180 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599727630615234 seconds
+2018-07-25 19:21:01,459 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:21:02,707 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.2339940071105957 seconds
+2018-07-25 19:21:02,754 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467989444732666 seconds
+2018-07-25 19:21:03,144 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.38998985290527344 seconds
+2018-07-25 19:21:03,175 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:03,206 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5025, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:03,238 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:03,269 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:03,300 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:03,316 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599489212036133 seconds
+2018-07-25 19:21:03,565 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.24959349632263184 seconds
+2018-07-25 19:21:04,189 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.6239840984344482 seconds
+2018-07-25 19:21:12,207 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.3103663921356201 seconds
+2018-07-25 19:21:12,207 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:21:13,830 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.608384370803833 seconds
+2018-07-25 19:21:16,138 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.29639244079589844 seconds
+2018-07-25 19:21:18,400 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959349632263184 seconds
+2018-07-25 19:21:18,416 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599727630615234 seconds
+2018-07-25 19:21:19,680 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24959373474121094 seconds
+2018-07-25 19:21:20,927 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.2339940071105957 seconds
+2018-07-25 19:21:20,974 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.0467987060546875 seconds
+2018-07-25 19:21:21,317 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.34319114685058594 seconds
+2018-07-25 19:21:21,333 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.015599727630615234 seconds
+2018-07-25 19:21:21,427 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5026, Spend 0.07799816131591797 seconds
+2018-07-25 19:21:21,442 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:21:21,473 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:21,505 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:21,520 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599489212036133 seconds
+2018-07-25 19:21:21,770 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.24959373474121094 seconds
+2018-07-25 19:21:22,300 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.530386209487915 seconds
+2018-07-25 19:21:30,069 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 1.0451734066009521 seconds
+2018-07-25 19:21:30,069 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:21:31,722 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.6395838260650635 seconds
+2018-07-25 19:21:33,984 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.24959349632263184 seconds
+2018-07-25 19:21:36,246 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959397315979004 seconds
+2018-07-25 19:21:36,262 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599250793457031 seconds
+2018-07-25 19:21:37,557 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.2807929515838623 seconds
+2018-07-25 19:21:38,820 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:21:38,851 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:39,210 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.35879087448120117 seconds
+2018-07-25 19:21:39,241 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:39,288 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5027, Spend 0.0467984676361084 seconds
+2018-07-25 19:21:39,319 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.031199216842651367 seconds
+2018-07-25 19:21:39,335 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:21:39,351 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599489212036133 seconds
+2018-07-25 19:21:39,382 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.03119945526123047 seconds
+2018-07-25 19:21:39,616 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339937686920166 seconds
+2018-07-25 19:21:40,146 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5303864479064941 seconds
+2018-07-25 19:21:50,910 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 3.9622983932495117 seconds
+2018-07-25 19:21:50,910 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:21:52,517 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.5927846431732178 seconds
+2018-07-25 19:21:54,794 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:21:57,072 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959373474121094 seconds
+2018-07-25 19:21:57,087 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599727630615234 seconds
+2018-07-25 19:21:58,351 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24959373474121094 seconds
+2018-07-25 19:21:59,615 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959349632263184 seconds
+2018-07-25 19:21:59,646 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.031199216842651367 seconds
+2018-07-25 19:22:00,004 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.35879063606262207 seconds
+2018-07-25 19:22:00,020 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.015599727630615234 seconds
+2018-07-25 19:22:00,082 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5028, Spend 0.062398433685302734 seconds
+2018-07-25 19:22:00,098 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599727630615234 seconds
+2018-07-25 19:22:00,129 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.031199216842651367 seconds
+2018-07-25 19:22:00,145 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.015599489212036133 seconds
+2018-07-25 19:22:00,160 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599727630615234 seconds
+2018-07-25 19:22:00,394 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2339940071105957 seconds
+2018-07-25 19:22:00,940 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459859371185303 seconds
+2018-07-25 19:22:11,579 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 3.899899959564209 seconds
+2018-07-25 19:22:11,595 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:22:13,420 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 0.8111793994903564 seconds
+2018-07-25 19:22:15,698 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26519322395324707 seconds
+2018-07-25 19:22:17,960 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7'], Spend 0.24959349632263184 seconds
+2018-07-25 19:22:17,975 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.015599727630615234 seconds
+2018-07-25 19:22:19,254 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.26519322395324707 seconds
+2018-07-25 19:22:20,518 - root - INFO - SUCCESS Click element: id-&gt;area_id, Spend 0.24959373474121094 seconds
+2018-07-25 19:22:20,549 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'bs-chinese-region flat dropdown open']/div/div/ul/li[1]/a, Spend 0.031199216842651367 seconds
+2018-07-25 19:22:20,939 - root - INFO - SUCCESS Click element: partial_link_text-&gt;北京, Spend 0.38998985290527344 seconds
+2018-07-25 19:22:20,970 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.031199216842651367 seconds
+2018-07-25 19:22:21,017 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 北京测试战队5029, Spend 0.0467989444732666 seconds
+2018-07-25 19:22:21,033 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.015599489212036133 seconds
+2018-07-25 19:22:21,048 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.015599727630615234 seconds
+2018-07-25 19:22:21,080 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.031199216842651367 seconds
+2018-07-25 19:22:21,095 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 22222, Spend 0.015599489212036133 seconds
+2018-07-25 19:22:21,345 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.24959373474121094 seconds
+2018-07-25 19:22:21,891 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5459859371185303 seconds
+2018-07-25 19:22:29,347 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.7331812381744385 seconds
+2018-07-25 19:22:29,347 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0 seconds
+2018-07-25 19:22:45,883 - root - INFO - FAIL Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 15.521601915359497 seconds
+2018-07-25 19:22:45,883 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "D:\Automation_MakeX\testcase\test_create_team.py", line 21, in test_create1
+    login3.create_round(999, "D:\A222.png", "北京")
+  File "D:\Automation_MakeX\pages\create_team.py", line 90, in create_round
+    self.plus()  # 点击+
+  File "D:\Automation_MakeX\pages\create_team.py", line 73, in plus
+    self.dr.click("xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i")
+  File "D:\Automation_MakeX\public\base_page.py", line 213, in click
+    self.element_wait(css)
+  File "D:\Automation_MakeX\public\base_page.py", line 74, in element_wait
+    WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, value)), messages)
+  File "D:\Automation_MakeX\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: Element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i not found .
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

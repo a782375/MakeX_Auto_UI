@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2018-07-25 18:49:36</p>
+<p class='attribute'><strong>Duration:</strong> 0:03:07.488306</p>
+<p class='attribute'><strong>Status:</strong> Error 1</p>
+
+<p class='description'>Test the import testcase</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_create_team.create_team1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_create2</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: 2018-07-25 18:49:36,035 - root - INFO - ############################### START ###############################
+2018-07-25 18:49:40,659 - root - INFO - SUCCESS Open a new browser : firefox, Spend 4.62353777885437 seconds. 
+2018-07-25 18:49:40,733 - root - INFO - SUCCESS Set browser window maximized, Spend 0.07299280166625977 seconds
+2018-07-25 18:49:41,680 - root - INFO - SUCCESS Open url: http://test2.www.makex.cc/login, Spend 0.9449055194854736 seconds. 
+2018-07-25 18:49:41,708 - root - INFO - SUCCESS Clearing content of element: id-&gt;phone_num, Spend 0.02699732780456543 seconds
+2018-07-25 18:49:41,756 - root - INFO - SUCCESS Sent element: id-&gt;phone_num, content: 18565792419, Spend 0.045995473861694336 seconds
+2018-07-25 18:49:41,774 - root - INFO - SUCCESS Clearing content of element: id-&gt;password, Spend 0.014998674392700195 seconds
+2018-07-25 18:49:41,803 - root - INFO - SUCCESS Sent element: id-&gt;password, content: interesting, Spend 0.026997089385986328 seconds
+2018-07-25 18:49:42,699 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class = 'btn btn-primary btn-block btn-lg'], Spend 0.8949103355407715 seconds
+2018-07-25 18:49:43,672 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.9719028472900391 seconds
+2018-07-25 18:49:43,676 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0019998550415039062 seconds
+2018-07-25 18:49:57,128 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 12.451754808425903 seconds
+2018-07-25 18:49:59,398 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2659733295440674 seconds
+2018-07-25 18:50:01,671 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button, Spend 0.27097296714782715 seconds
+2018-07-25 18:50:01,688 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.014998674392700195 seconds
+2018-07-25 18:50:02,939 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24897503852844238 seconds
+2018-07-25 18:50:04,180 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class= 'btn btn-default dropdown-toggle country-toggle'], Spend 0.2399759292602539 seconds
+2018-07-25 18:50:04,572 - root - INFO - SUCCESS Click element: link_text-&gt;法国, Spend 0.38796114921569824 seconds
+2018-07-25 18:50:04,605 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.03099679946899414 seconds
+2018-07-25 18:50:04,636 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 法国测试战队5361, Spend 0.028997182846069336 seconds
+2018-07-25 18:50:04,656 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.018997907638549805 seconds
+2018-07-25 18:50:04,726 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.0679931640625 seconds
+2018-07-25 18:50:04,761 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.03399658203125 seconds
+2018-07-25 18:50:04,791 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 123456, Spend 0.027997255325317383 seconds
+2018-07-25 18:50:05,038 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2359762191772461 seconds
+2018-07-25 18:50:05,603 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.561943769454956 seconds
+2018-07-25 18:50:12,921 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.5859415531158447 seconds
+2018-07-25 18:50:12,931 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.008998870849609375 seconds
+2018-07-25 18:50:19,448 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 5.516448259353638 seconds
+2018-07-25 18:50:21,700 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2509751319885254 seconds
+2018-07-25 18:50:23,960 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button, Spend 0.25797438621520996 seconds
+2018-07-25 18:50:23,983 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.02099776268005371 seconds
+2018-07-25 18:50:25,234 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24997496604919434 seconds
+2018-07-25 18:50:26,470 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class= 'btn btn-default dropdown-toggle country-toggle'], Spend 0.2339766025543213 seconds
+2018-07-25 18:50:26,893 - root - INFO - SUCCESS Click element: link_text-&gt;法国, Spend 0.41995811462402344 seconds
+2018-07-25 18:50:26,928 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.03299689292907715 seconds
+2018-07-25 18:50:26,977 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 法国测试战队5362, Spend 0.04699540138244629 seconds
+2018-07-25 18:50:27,007 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.027997255325317383 seconds
+2018-07-25 18:50:27,031 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.022997617721557617 seconds
+2018-07-25 18:50:27,056 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.02299785614013672 seconds
+2018-07-25 18:50:27,091 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 123456, Spend 0.03399658203125 seconds
+2018-07-25 18:50:27,346 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2419757843017578 seconds
+2018-07-25 18:50:27,909 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5599439144134521 seconds
+2018-07-25 18:50:37,795 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 3.1846814155578613 seconds
+2018-07-25 18:50:37,799 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0019998550415039062 seconds
+2018-07-25 18:50:44,149 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 5.3484649658203125 seconds
+2018-07-25 18:50:46,409 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.25997400283813477 seconds
+2018-07-25 18:50:48,660 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button, Spend 0.24897503852844238 seconds
+2018-07-25 18:50:48,675 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.012998580932617188 seconds
+2018-07-25 18:50:49,930 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.25397467613220215 seconds
+2018-07-25 18:50:51,164 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class= 'btn btn-default dropdown-toggle country-toggle'], Spend 0.23197674751281738 seconds
+2018-07-25 18:50:51,518 - root - INFO - SUCCESS Click element: link_text-&gt;法国, Spend 0.35196471214294434 seconds
+2018-07-25 18:50:51,562 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.04199576377868652 seconds
+2018-07-25 18:50:51,590 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 法国测试战队5363, Spend 0.024997472763061523 seconds
+2018-07-25 18:50:51,608 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.016998291015625 seconds
+2018-07-25 18:50:51,630 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.01999807357788086 seconds
+2018-07-25 18:50:51,656 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.02399754524230957 seconds
+2018-07-25 18:50:51,685 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 123456, Spend 0.02799701690673828 seconds
+2018-07-25 18:50:51,920 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.22597718238830566 seconds
+2018-07-25 18:50:52,468 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.545945405960083 seconds
+2018-07-25 18:50:59,792 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.5579442977905273 seconds
+2018-07-25 18:50:59,796 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.002999544143676758 seconds
+2018-07-25 18:51:06,705 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 5.908409118652344 seconds
+2018-07-25 18:51:08,975 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.26897311210632324 seconds
+2018-07-25 18:51:11,225 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button, Spend 0.24897527694702148 seconds
+2018-07-25 18:51:11,239 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.011998653411865234 seconds
+2018-07-25 18:51:12,501 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.25997424125671387 seconds
+2018-07-25 18:51:13,747 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class= 'btn btn-default dropdown-toggle country-toggle'], Spend 0.24397563934326172 seconds
+2018-07-25 18:51:14,113 - root - INFO - SUCCESS Click element: link_text-&gt;法国, Spend 0.36396360397338867 seconds
+2018-07-25 18:51:14,143 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.027997255325317383 seconds
+2018-07-25 18:51:14,183 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 法国测试战队5364, Spend 0.03799629211425781 seconds
+2018-07-25 18:51:14,206 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.021997928619384766 seconds
+2018-07-25 18:51:14,233 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.025997400283813477 seconds
+2018-07-25 18:51:14,253 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.018997907638549805 seconds
+2018-07-25 18:51:14,278 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 123456, Spend 0.023997783660888672 seconds
+2018-07-25 18:51:14,528 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.24297547340393066 seconds
+2018-07-25 18:51:15,079 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5499451160430908 seconds
+2018-07-25 18:51:22,360 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.5579442977905273 seconds
+2018-07-25 18:51:22,364 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.0019996166229248047 seconds
+2018-07-25 18:51:31,619 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 8.255174398422241 seconds
+2018-07-25 18:51:33,899 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2779722213745117 seconds
+2018-07-25 18:51:36,149 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button, Spend 0.24797558784484863 seconds
+2018-07-25 18:51:36,161 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.00999903678894043 seconds
+2018-07-25 18:51:37,410 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.24797511100769043 seconds
+2018-07-25 18:51:38,643 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class= 'btn btn-default dropdown-toggle country-toggle'], Spend 0.23197698593139648 seconds
+2018-07-25 18:51:38,988 - root - INFO - SUCCESS Click element: link_text-&gt;法国, Spend 0.3439652919769287 seconds
+2018-07-25 18:51:39,020 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.02999711036682129 seconds
+2018-07-25 18:51:39,053 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 法国测试战队5365, Spend 0.03099679946899414 seconds
+2018-07-25 18:51:39,072 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.01799798011779785 seconds
+2018-07-25 18:51:39,093 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.01999807357788086 seconds
+2018-07-25 18:51:39,116 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.02099776268005371 seconds
+2018-07-25 18:51:39,145 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 123456, Spend 0.027997255325317383 seconds
+2018-07-25 18:51:39,390 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.2359764575958252 seconds
+2018-07-25 18:51:39,935 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5429458618164062 seconds
+2018-07-25 18:51:47,273 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.5390000343322754 seconds
+2018-07-25 18:51:47,276 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.002000093460083008 seconds
+2018-07-25 18:51:53,980 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 5.70199990272522 seconds
+2018-07-25 18:51:56,233 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.25099992752075195 seconds
+2018-07-25 18:51:58,554 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button, Spend 0.31999993324279785 seconds
+2018-07-25 18:51:58,580 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.02299976348876953 seconds
+2018-07-25 18:51:59,843 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.25999999046325684 seconds
+2018-07-25 18:52:01,087 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class= 'btn btn-default dropdown-toggle country-toggle'], Spend 0.24299979209899902 seconds
+2018-07-25 18:52:01,453 - root - INFO - SUCCESS Click element: link_text-&gt;法国, Spend 0.3640000820159912 seconds
+2018-07-25 18:52:01,480 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.02499985694885254 seconds
+2018-07-25 18:52:01,516 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 法国测试战队5366, Spend 0.03500008583068848 seconds
+2018-07-25 18:52:01,535 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.017999887466430664 seconds
+2018-07-25 18:52:01,558 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.02200007438659668 seconds
+2018-07-25 18:52:01,582 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.023000001907348633 seconds
+2018-07-25 18:52:01,611 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 123456, Spend 0.026999950408935547 seconds
+2018-07-25 18:52:01,851 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.22999978065490723 seconds
+2018-07-25 18:52:02,449 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5959999561309814 seconds
+2018-07-25 18:52:09,727 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.5429999828338623 seconds
+2018-07-25 18:52:09,736 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.007999897003173828 seconds
+2018-07-25 18:52:16,276 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 5.537999868392944 seconds
+2018-07-25 18:52:18,566 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.2890000343322754 seconds
+2018-07-25 18:52:20,821 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button, Spend 0.254000186920166 seconds
+2018-07-25 18:52:20,846 - root - INFO - SUCCESS Upload picture, path: D:\A222.png Spend 0.02200007438659668 seconds
+2018-07-25 18:52:22,101 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'col-xs-5 col-sm-5']/button, Spend 0.25300025939941406 seconds
+2018-07-25 18:52:23,343 - root - INFO - SUCCESS Click element: xpath-&gt;//button[@class= 'btn btn-default dropdown-toggle country-toggle'], Spend 0.24000000953674316 seconds
+2018-07-25 18:52:23,709 - root - INFO - SUCCESS Click element: link_text-&gt;法国, Spend 0.36500000953674316 seconds
+2018-07-25 18:52:23,727 - root - INFO - SUCCESS Clearing content of element: id-&gt;name, Spend 0.016000032424926758 seconds
+2018-07-25 18:52:23,770 - root - INFO - SUCCESS Sent element: id-&gt;name, content: 法国测试战队5367, Spend 0.0409998893737793 seconds
+2018-07-25 18:52:23,791 - root - INFO - SUCCESS Clearing content of element: id-&gt;slogan, Spend 0.020999908447265625 seconds
+2018-07-25 18:52:23,814 - root - INFO - SUCCESS Sent element: id-&gt;slogan, content: 11111, Spend 0.021999835968017578 seconds
+2018-07-25 18:52:23,840 - root - INFO - SUCCESS Clearing content of element: id-&gt;intro, Spend 0.02500009536743164 seconds
+2018-07-25 18:52:23,875 - root - INFO - SUCCESS Sent element: id-&gt;intro, content: 123456, Spend 0.034999847412109375 seconds
+2018-07-25 18:52:24,113 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'part-edit-mt']/div[@class = 'form-group form-group-lg']/button, Spend 0.23200011253356934 seconds
+2018-07-25 18:52:24,682 - root - INFO - SUCCESS Get text element, element: xpath-&gt;//div[@class = 'toast-wrap toast-success'], text: 战队创建成功！, Spend 0.5679998397827148 seconds
+2018-07-25 18:52:31,984 - root - INFO - SUCCESS Click element: xpath-&gt;//ul[@class = 'nav navbar-nav navbar-right']/li[7]/a/span, Spend 0.5529999732971191 seconds
+2018-07-25 18:52:31,989 - root - INFO - SUCCESS Set wait all elements to display in 15 seconds , Spend 0.003999948501586914 seconds
+2018-07-25 18:52:38,736 - root - INFO - SUCCESS Click element: xpath-&gt;//div[@class = 'teams-list-title hidden-xs']/a/i, Spend 5.746000051498413 seconds
+2018-07-25 18:52:41,488 - root - INFO - SUCCESS Click element: xpath-&gt;/html/body/div[1]/div[2]/div[1]/div[2]/form/div/div/div/div[1]/a/i, Spend 0.751000165939331 seconds
+2018-07-25 18:52:43,518 - root - INFO - FAIL Click element: xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button, Spend 0.0279998779296875 seconds
+2018-07-25 18:52:43,520 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "D:\Automation_MakeX\testcase\test_create_team.py", line 31, in test_create2
+    login3.create_round2(999, "D:\A222.png", "法国")
+  File "D:\Automation_MakeX\pages\create_team.py", line 125, in create_round2
+    self.upload_logo(pic_path)  # 上传战队logo
+  File "D:\Automation_MakeX\pages\create_team.py", line 21, in upload_logo
+    self.dr.click("xpath-&gt;//div[@class = 'col-xs-7 col-sm-7']/button")  # 点击选择图片
+  File "D:\Automation_MakeX\public\base_page.py", line 215, in click
+    element.click()
+  File "D:\Automation_MakeX\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\Automation_MakeX\lib\site-packages\selenium\webdriver\remote\webelement.py", line 628, in _execute
+    return self._parent.execute(command, params)
+  File "D:\Automation_MakeX\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 314, in execute
+    self.error_handler.check_response(response)
+  File "D:\Automation_MakeX\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotInteractableException: Message: Element &lt;button class="btn btn-default btn-block btn-lg" type="button"&gt; could not be scrolled into view
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
